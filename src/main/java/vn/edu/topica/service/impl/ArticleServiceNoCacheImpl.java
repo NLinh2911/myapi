@@ -10,12 +10,22 @@ import vn.edu.topica.service.ArticleService;
 import java.util.ArrayList;
 import java.util.List;
 
-@Profile("nocache")
+@Profile({"nocache", "cacheview"})
 @Service
 public class ArticleServiceNoCacheImpl implements ArticleService {
 
     @Autowired
     private ArticleRepository articleRepository;
+
+    @Override
+    public Article save(Article article) {
+        return articleRepository.save(article);
+    }
+
+    @Override
+    public void delete(Long id) {
+        articleRepository.delete(id);
+    }
 
     @Override
     public List<Article> getAll() {

@@ -12,12 +12,22 @@ import vn.edu.topica.service.ArticleService;
 import java.util.ArrayList;
 import java.util.List;
 
-@Profile("cache")
+@Profile("cachedb")
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     private ArticleRepository articleRepository;
+
+    @Override
+    public Article save(Article article) {
+        return articleRepository.save(article);
+    }
+
+    @Override
+    public void delete(Long id) {
+        articleRepository.delete(id);
+    }
 
     @Override
     @CacheEvict(value="articles")

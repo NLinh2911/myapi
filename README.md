@@ -7,3 +7,8 @@
 ## Services follow Singleton pattern:
 * ArticleService interface ensures a contract in terms of functionalities that the application can use. We can have different implementations of that service
 
+## Profiles
+* nocache
+* cachedb
+* cacheview
+* redis

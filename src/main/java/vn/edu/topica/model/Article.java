@@ -1,10 +1,14 @@
 package vn.edu.topica.model;
 
-import javax.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Data
 @Entity
 @Table(name = "article")
-public class Article {
+public class Article implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,28 +17,4 @@ public class Article {
     private String name;
 
     private String content;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }
